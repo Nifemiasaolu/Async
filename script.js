@@ -40,7 +40,6 @@ const countriesContainer = document.querySelector('.countries');
 // getCountryData('germany');
 // getCountryData('japan');
 
-
 const getCountryData = function(country) {
 const request = new XMLHttpRequest();
 request.open('GET', `https://restcountries.com/v2/name/${country}`);
