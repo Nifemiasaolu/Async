@@ -121,7 +121,7 @@ console.log(request);
 //     });
 // };
 
-////////// Simple Promise and Handler Format //////////////////////
+////////// Simple Promise and Handler Format /////////////////////
 // const getCountryData = function (country) {
 //   fetch(`https://restcountries.com/v2/name/${country}`)
 //     .then(response => response.json())
