@@ -209,3 +209,65 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   getCountryData('australia');
 });
+
+//////////////////////////////
+/////// Event Loop in Practice ///////
+
+// console.log('Test start');  //1
+// setTimeout(() => console.log('0 sec timer'), 0); //5
+
+// Promise.resolve('Resolved promise 1').then(res => console.log(res)) //3
+// Promise.resolve('Resolved promise 2').then(res => { //4
+//   for(let i = 0; i < 10000; i++) {}
+//   console.log(res);
+// })
+// console.log('Test end'); //2
+
+//////////////////////////////////////////////
+///////// Building a Simple Promise ////////////
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+
+  console.log('Lottery draw is Happening 🔮');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN💰');
+    } else {
+      reject(new Error('You lost your money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise
+  .then(res => console.log(res))
+  .catch(err => console.error(`${err}`));
+
+
+
+///// Promisifying setTimeout // Promisifying means converting async base function to Promise base function
+// Example ////
+const wait = function(seconds) {
+  return new Promise(function(resolve){
+    setTimeout(resolve, seconds * 1000);
+  })
+}
+
+wait(1)
+.then(() => {
+  console.log('1 second passed');
+  return wait(1);
+})
+.then(() => {
+  console.log('2 seconds passed');
+  return wait(1);
+})
+.then(() => {
+  console.log('3 seconds passed');
+  return wait(1);
+})
+.then(() => console.log('4 seconds passed'));
+
+
+// Creating a Fufilled or Rejected Promise Immediately (Another Method) 
+Promise.resolve('abc').then(res => console.log(res))
+Promise.reject(new Error('Problem')).catch(res => console.error(res))
