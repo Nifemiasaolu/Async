@@ -106,7 +106,7 @@ const renderError = function (msg) {
 const request = fetch(`https://restcountries.com/v2/name/nigeria`);
 // console.log(request);
 
-///////////// Expanded Format (Promise and Handler Format) /////////
+///////////// Expanded Format (Promise and Handler Format) ////////
 // const getCountryData = function (country) {
 //   fetch(`https://restcountries.com/v2/name/${country}`)
 //     .then(function (response) {
