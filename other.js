@@ -46,7 +46,7 @@
 
 // whereAmI(52.508, 13.381);
 
-///////////////////////
+////////////////////////////
 // Code Challenge #2
 
 const imgContainer = document.querySelector('.images');
