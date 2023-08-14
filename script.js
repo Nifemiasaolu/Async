@@ -226,48 +226,68 @@ btn.addEventListener('click', function () {
 //////////////////////////////////////////////
 ///////// Building a Simple Promise ////////////
 
-const lotteryPromise = new Promise(function (resolve, reject) {
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   console.log('Lottery draw is Happening 🔮');
+//   setTimeout(function () {
+//     if (Math.random() >= 0.5) {
+//       resolve('You WIN💰');
+//     } else {
+//       reject(new Error('You lost your money 💩'));
+//     }
+//   }, 2000);
+// });
 
-  console.log('Lottery draw is Happening 🔮');
-  setTimeout(function () {
-    if (Math.random() >= 0.5) {
-      resolve('You WIN💰');
-    } else {
-      reject(new Error('You lost your money 💩'));
-    }
-  }, 2000);
-});
+// lotteryPromise
+//   .then(res => console.log(res))
+//   .catch(err => console.error(`${err}`));
 
-lotteryPromise
-  .then(res => console.log(res))
-  .catch(err => console.error(`${err}`));
-
-
-
-///// Promisifying setTimeout // Promisifying means converting async base function to Promise base function
+///// Promisifying setTimeout // Promisifying means converting async base function (Callback base API) to Promise base API
 // Example ////
-const wait = function(seconds) {
-  return new Promise(function(resolve){
-    setTimeout(resolve, seconds * 1000);
-  })
-}
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
 
-wait(1)
-.then(() => {
-  console.log('1 second passed');
-  return wait(1);
-})
-.then(() => {
-  console.log('2 seconds passed');
-  return wait(1);
-})
-.then(() => {
-  console.log('3 seconds passed');
-  return wait(1);
-})
-.then(() => console.log('4 seconds passed'));
+// wait(1)
+//   .then(() => {
+//     console.log('1 second passed');
+//     return wait(1);
+//   })
+//   .then(() => {
+//     console.log('2 seconds passed');
+//     return wait(1);
+//   })
+//   .then(() => {
+//     console.log('3 seconds passed');
+//     return wait(1);
+//   })
+//   .then(() => console.log('4 seconds passed'));
 
 
-// Creating a Fufilled or Rejected Promise Immediately (Another Method) 
-Promise.resolve('abc').then(res => console.log(res))
-Promise.reject(new Error('Problem')).catch(res => console.error(res))
+
+// Creating a Fufilled or Rejected Promise Immediately (Another Method)
+// Promise.resolve('abc').then(res => console.log(res));
+// Promise.reject(new Error('Problem')).catch(res => console.error(res));
+
+///////////////////////////////////////
+//// Promisifying Geolocation API /////// NOT COMPLETED
+
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     // navigator.geolocation.getCurrentPosition(
+//     //   position => resolve(position),
+//     //   err => reject(err)
+//     // );
+//     navigator.geolocation.getCurrentPosition(resolve, reject)
+
+//   });
+// };
+
+// getPosition().then(pos => console.log(pos))
+
+///////////////////NOT COMPLETED
+
+//////////////////////////////////////////////////////////
+//////////// Consuming Promises with ASYNC/AWAIT ////////////
+
