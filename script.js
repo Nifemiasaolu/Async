@@ -385,7 +385,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong!') {
 
 // get3Countries('nigeria', 'canada', 'portugal');
 
-///////////////////////////////////////////////////
+//////////////////////////////////////////////////
 ////////// Promise.race /////////
 // (async function () {
 //   const res = await Promise.race([
